@@ -1,0 +1,21 @@
+def check_loan_eligibility(income, expenses, credit_score):
+    savings = income - expenses
+
+    if savings <= 0:
+        return "Loan Denied: No savings detected."
+    elif credit_score < 500:
+        return "Loan Denied: Poor credit score."
+    elif savings >= 50000 and credit_score >= 700:
+        return "Loan Approved: Max limit ₦1,000,000"
+    elif savings >= 20000:
+        return "Loan Approved: Max limit ₦500,000"
+    else:
+        return "Loan Approved: Max limit ₦100,000"
+
+print("Welcome to FPay Loan Checker!")
+income = float(input("Monthly income (₦): "))
+expenses = float(input("Monthly expenses (₦): "))
+credit_score = int(input("Credit score (300 - 850): "))
+
+result = check_loan_eligibility(income, expenses, credit_score)
+print(result)
